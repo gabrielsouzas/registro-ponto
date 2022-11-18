@@ -1,0 +1,180 @@
+@charset "UTF-8";
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Rubik+Dirt&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Rubik', sans-serif;
+    scroll-behavior: smooth;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgb(129, 187, 91);
+}
+
+/* Navbar */
+.logo {
+    font-weight: 700;
+    color: #FFF;
+    padding: 1rem;
+}
+
+.navbar {
+    display: flex;
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: rgb(129, 187, 91);
+    
+    text-align: left;
+    transition: 0.2s ease;
+}
+.navbar a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 3px;
+
+    display: block;
+    padding: 1rem;
+    border-left: 2px solid #fff;
+    margin: 0.5rem;
+    display: block;
+    
+}
+.active {
+    top: 100%;
+    box-shadow: 0px 15px 30px 0px rgb(0 0 0 / 70%);
+}
+
+.navbar a:hover {
+    background: rgb(129, 187, 91);
+    transition: .3s;
+}
+
+/* MENU HAMBURGUER */
+#menu-icon {
+    font-size: 28px;
+    z-index: 10001;
+    cursor: pointer;
+    display: block;
+    padding: 1rem;
+    color: #ffffff;
+}
+
+/* Section */
+section {
+    padding: 0 1rem;
+}
+
+/* Home */
+.home {
+    padding-top: 80px;
+    padding-bottom: 35px;
+    text-align: center;
+
+    height: 100vh;
+}
+
+/* Form Login */
+
+#user-icon {
+    font-size: 5em;
+    padding: 5px;
+    color: rgb(129, 187, 91);
+}
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+.login-header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+.login-header h1 {
+    color: #333;
+    font-size: 1.5em;
+}
+.login-input {
+    border: 2px solid #333;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+    margin-bottom: 15px;
+    /* Ocupa toda a tela se for menor de 300px */
+    max-width: 300px;
+    width: 100%;
+    outline: none;
+    padding: 15px;
+}
+
+.login-button {
+    background-color: rgb(129, 187, 91);
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    max-width: 300px;
+    padding: 15px;
+    width: 100%;
+}
+
+/* Usando a pseudo-class disabled para quando o botão estiver desabilitado*/
+.login-button:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+}
+
+
+/* Telas maiores */
+@media screen and (min-width: 420px) {
+    header {
+        width: 420px;
+
+        /* Centraliza o header apenas horixontalmente (eixo X) */
+        left: 50%;
+        transform: translateX(-50%);
+
+        
+    }
+    main {
+        /* Definindo uma largura e a margem para auto o proprio motor vai calcular a margem, deixando o elemento centralizado, não importando o tamanho da tela */
+        width: 420px;
+        margin: auto;
+        background-color: var(--bg-color-big);
+    }
+    footer {
+        width: 420px;
+        margin: auto;
+        background-color: var(--bg-color-big);
+    }
+}
