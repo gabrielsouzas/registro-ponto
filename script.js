@@ -38,9 +38,12 @@ const handleSubmit = (event) => {
     /* O browser possui uma ferramenta chamada Local Storage, que armazena dados da sessão, através dessa ferramenta será possivel armazenar os dados informados pelo usuário*/
 
     /* Pega o que o usuario digitou e salva no Local Storage pelo método localStorage.setItem(), que precisa de dois parâmetros, o primeiro é a chave do valor que será salvo e o segundo é o proprio valor*/
-    localStorage.setItem('player', input.value);
+    //localStorage.setItem('player', input.value);
     /* Redireciona o usuario para a pagina principal do jogo */
-    window.location = 'pages/game.html'
+    //window.location = 'pages/game.html'
+
+    // Mostra o modal
+    modal.style.display = 'block';
 }
 
 /* Executa a função abaixo toda vez que algo for digitado no input através da função 'input'
@@ -49,3 +52,14 @@ input.addEventListener('input', validateInput);
 
 /* Executa a função abaixo toda vez que o form receber dados pelo 'submit*/
 form.addEventListener('submit', handleSubmit);
+
+
+// Modal
+
+const modal = document.querySelector('.modal');
+const modalText = document.querySelector('.modal h2');
+const modalButton = document.querySelector('.modal button');
+
+function clicouOk() {
+    modal.style.display = 'none';
+}

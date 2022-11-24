@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- JAVASCRIPT -->
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 
     <!-- Link BoxIcons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -30,6 +30,7 @@
                 <div class="login-header">
                     <div class='bx bxs-user' id="user-icon"></div>
                     <h1>Registrar Ponto</h1>
+                    <span id="data-hora">24/11/2022 - 12:40</span>
                 </div>
         
                 <input type="text" placeholder="Nome" class="login-input">
@@ -38,6 +39,13 @@
         
             </form>
         </section>
+
+        <div class="modal">
+            <div class="content">
+                <h2>Ponto Registrado</h2>
+                <button class="btn" onclick="clicouOk()">OK</button>
+            </div>
+        </div>
     </main>
 </body>
 </html>
