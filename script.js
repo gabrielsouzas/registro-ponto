@@ -95,6 +95,12 @@ console.log(new Date());
 console.log(new Date(1669309896000))
 console.log((Date.parse(new Date()) - 1669309896000)/60000);
 
+function millisToMinutesAndSeconds(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+  }
+
 /*Thu Nov 24 2022 14:11:36 GMT-0300 (Horário Padrão de Brasília)
 1669309896000*/
 
