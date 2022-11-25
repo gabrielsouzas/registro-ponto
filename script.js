@@ -17,7 +17,7 @@ window.onscroll = () => {
 /* Login */
 
 const input = document.querySelector('.login-input');
-const button = document.querySelector('.login-button');
+const button = document.querySelector('#login-button');
 const form = document.querySelector('.login-form');
 
 const inputPassword = document.querySelector('#id-password');
@@ -192,17 +192,22 @@ const printButton = document.querySelector('#print-button');
 
 resetButton.addEventListener('click', () => {
     
+    // Verifica se exite o registro no localStorage
     if (localStorage.hasOwnProperty("registroponto")) {
         dados = JSON.parse(localStorage.getItem("registroponto"));
         
+        // Verifica as credenciais
         if (dados.name == inputName.value) {
             if (dados.password == inputPassword.value) {
-
+                // Exclui
+                localStorage.removeItem("registroponto");
+                alert("Horas excluidas!");
             } else {
                 alert("Senha para o úsuario incorreta!");
             }
         }
     } else {
+        alert("Registro de horas não encontrado!");
         
     }
 });
