@@ -35,14 +35,18 @@
         
                 <input type="text" placeholder="Nome" class="login-input" id="id-name">
                 <input type="password" placeholder="Senha" name="password" id="id-password" class="login-input">
-                <button type="submit" class="login-button" disabled>Registrar</button>
+                <button type="submit" class="btn" id="login-button" disabled>Registrar</button>
+
+                <a class="btn" id="reset-button">Limpar Horas</a>
+                <a class="btn" id="print-button">Imprimir Horas</a>
         
             </form>
         </section>
 
         <div class="modal">
             <div class="content">
-                <h2>Ponto Registrado</h2>
+                <h2></h2>
+                <span></span>
                 <button class="btn" onclick="clicouOk()">OK</button>
             </div>
         </div>

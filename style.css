@@ -142,7 +142,7 @@ section {
     padding: 15px;
 }
 
-.login-button {
+.btn {
     background-color: rgb(129, 187, 91);
     border-radius: 8px;
     color: #fff;
@@ -151,13 +151,28 @@ section {
     max-width: 300px;
     padding: 15px;
     width: 100%;
+    text-transform: uppercase;
 }
 
 /* Usando a pseudo-class disabled para quando o botão estiver desabilitado*/
-.login-button:disabled {
+.btn:disabled {
     background-color: #eee;
     color: #aaa;
     cursor: auto;
+}
+
+#reset-button, #print-button {
+    background-color: rgb(152, 197, 122);
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#reset-button {
+    margin-top: 40px;
+}
+
+#print-button {
+    margin-top: 7px;
 }
 
 /* Modal */
@@ -190,6 +205,10 @@ section {
     margin-top: 10px;
     text-align: center;
     color: var(--text-color-big);
+}
+
+.modal span {
+    padding-top: 10px;
 }
 
 .modal button {
