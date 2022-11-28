@@ -32,10 +32,16 @@ header {
 }
 
 /* Navbar */
-.logo {
+/*.logo {
     font-family: 'Lobster', cursive;
     letter-spacing: 1px;
     font-weight: 700;
+    color: #FFF;
+    padding: 1rem;
+}*/
+
+#logo {
+    font-size: 2em;
     color: #FFF;
     padding: 1rem;
 }
