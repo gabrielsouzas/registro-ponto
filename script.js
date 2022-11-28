@@ -88,9 +88,24 @@ const handleSubmit = (event) => {
                     modalText.innerHTML = "Entrada";
                 }
 
+                /* Salva o item */
+                localStorage.setItem("registroponto", JSON.stringify(dados))      
+
+                // Mostra o modal
+                modalSpan.innerHTML = "Total de horas: " + convertMsToTime(dados.hours);
+                modal.style.display = 'block';
+
             } else {
-                alert("Senha para o úsuario incorreta!");
+                // Mostra o modal
+                modalSpan.innerHTML = "Senha para o úsuario incorreta!";
+                modalButton.innerHTML = "OK";
+                modal.style.display = 'block';
             }
+        } else {
+            // Mostra o modal
+            modalSpan.innerHTML = "Usuário não encontrado";
+            modalButton.innerHTML = "OK";
+            modal.style.display = 'block';
         }
     } else {
         dados.type = "entrada";
@@ -100,14 +115,21 @@ const handleSubmit = (event) => {
         dados.hours = 0;
 
         modalText.innerHTML = "Entrada";
+
+        /* Salva o item */
+        localStorage.setItem("registroponto", JSON.stringify(dados))      
+
+        // Mostra o modal
+        modalSpan.innerHTML = "Total de horas: " + convertMsToTime(dados.hours);
+        modal.style.display = 'block';
     }
 
     /* Salva o item */
-    localStorage.setItem("registroponto", JSON.stringify(dados))      
+    /*localStorage.setItem("registroponto", JSON.stringify(dados))      
 
     // Mostra o modal
     modalSpan.innerHTML = "Total de horas: " + convertMsToTime(dados.hours);
-    modal.style.display = 'block';
+    modal.style.display = 'block';*/
 }
 
 
@@ -232,6 +254,45 @@ modalButton.addEventListener('click', () => {
         localStorage.removeItem("registroponto");
         modal.style.display = 'none';
         modalEvent = "";
+
+        spanHours.innerHTML = "";
+        spanLastEntry.innerHTML = "";
     }
 })
 
+const spanHours = document.querySelector('#hours');
+const spanLastEntry = document.querySelector('#last-entry');
+
+printButton.addEventListener('click', () => {
+
+    // Verifica se exite o registro no localStorage
+    if (localStorage.hasOwnProperty("registroponto")) {
+        dados = JSON.parse(localStorage.getItem("registroponto"));
+        
+        // Verifica as credenciais
+        if (dados.name == inputName.value) {
+            if (dados.password == inputPassword.value) {
+                
+                spanHours.innerHTML = `Horas: ${convertMsToTime(dados.hours)}`;
+                spanLastEntry.innerHTML = `Último Registro: ${dados.type}`;
+
+            } else {
+                // Mostra o modal
+                modalSpan.innerHTML = "Senha para o úsuario incorreta!";
+                modalButton.innerHTML = "OK";
+                modal.style.display = 'block';
+            }
+        } else {
+            // Mostra o modal
+            modalSpan.innerHTML = "Usuário não encontrado!";
+            modalButton.innerHTML = "OK";
+            modal.style.display = 'block';
+        }
+    } else {
+        // Mostra o modal
+        modalSpan.innerHTML = "Registro de horas não encontrado!";
+        modalButton.innerHTML = "OK";
+        modal.style.display = 'block';
+        
+    }
+})

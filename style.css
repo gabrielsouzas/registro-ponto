@@ -175,6 +175,10 @@ section {
     margin-top: 7px;
 }
 
+#hours, #last-entry {
+    margin-top: 10px;
+}
+
 /* Modal */
 
 .modal {
