@@ -211,6 +211,11 @@ resetButton.addEventListener('click', () => {
                 modalButton.innerHTML = "OK";
                 modal.style.display = 'block';
             }
+        } else {
+            // Mostra o modal
+            modalSpan.innerHTML = "Usuário não encontrado!";
+            modalButton.innerHTML = "OK";
+            modal.style.display = 'block';
         }
     } else {
         // Mostra o modal
@@ -226,5 +231,7 @@ modalButton.addEventListener('click', () => {
         // Exclui
         localStorage.removeItem("registroponto");
         modal.style.display = 'none';
+        modalEvent = "";
     }
 })
+
