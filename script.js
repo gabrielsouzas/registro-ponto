@@ -29,6 +29,7 @@ const modal = document.querySelector('.modal');
 const modalText = document.querySelector('.modal h2');
 const modalSpan = document.querySelector('.modal span');
 const modalButton = document.querySelector('.modal button');
+var modalEvent = "";
 
 /* Pega o target através da desestruturação de objeto, que veio do event*/
 const validateInput = ({target}) => {
@@ -199,15 +200,31 @@ resetButton.addEventListener('click', () => {
         // Verifica as credenciais
         if (dados.name == inputName.value) {
             if (dados.password == inputPassword.value) {
-                // Exclui
-                localStorage.removeItem("registroponto");
-                alert("Horas excluidas!");
+                // Mostra o modal
+                modalSpan.innerHTML = "Confirma a exclusão?";
+                modalButton.innerHTML = "Sim";
+                modal.style.display = 'block';
+                modalEvent = "excluir";
             } else {
-                alert("Senha para o úsuario incorreta!");
+                // Mostra o modal
+                modalSpan.innerHTML = "Senha para o úsuario incorreta!";
+                modalButton.innerHTML = "OK";
+                modal.style.display = 'block';
             }
         }
     } else {
-        alert("Registro de horas não encontrado!");
+        // Mostra o modal
+        modalSpan.innerHTML = "Registro de horas não encontrado!";
+        modalButton.innerHTML = "OK";
+        modal.style.display = 'block';
         
     }
 });
+
+modalButton.addEventListener('click', () => {
+    if (modalEvent == "excluir") {
+        // Exclui
+        localStorage.removeItem("registroponto");
+        modal.style.display = 'none';
+    }
+})
